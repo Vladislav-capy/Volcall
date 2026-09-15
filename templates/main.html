@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volcall</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/main.css')}}">
+</head>
+<body>
+    <header id="call" class="call">
+    <span class="Volcall">VOLCALL</span>
+    <div id="calls" class="calls">
+        <button><img src="{{url_for('static',filename='media/phone-call.png')}}" alt="call"></button>
+        <button id="videocall"><img src="{{url_for('static',filename='media/cam-recorder.png')}}" alt="video-call"></button>
+    </div>
+</header>
+        <video id="video" autoplay></video>
+
+
+
+
+
+
+
+
+
+    <script src="{{url_for('static',filename='JS/main.js')}}"></script>
+</body>
+</html>
