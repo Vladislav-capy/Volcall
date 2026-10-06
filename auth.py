@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash,check_password_hash
 import db
 import secrets
 import datetime
+
 auth=Blueprint("auth",__name__)
 
 @auth.route("/register",methods=["POST","GET"])

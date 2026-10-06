@@ -2,6 +2,7 @@ from flask import session
 from flask import Flask,Blueprint
 import views
 import auth
+from flask_socketio import SocketIO
 from db import db
 app=Flask("app")
 app.config["SECRET_KEY"]="login"
@@ -11,3 +12,4 @@ app.register_blueprint(auth.auth)
 db.init_app(app)
 with app.app_context():
     db.create_all()
+SocketApp=SocketIO(app)
