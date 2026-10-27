@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats</title>
+</head>
+<body>
+    <input type="text" id="input">
+    {%if chats%}
+    {%for i in chats%}
+    <div class="chats" id="chats">{{i}}</div>
+    {%endfor%}
+    {%else%}
+    <p>Начните общение иначе вас заблокируют с гугла</p>
+    {%endif%}
+</body>
+</html>

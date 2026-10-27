@@ -33,7 +33,7 @@ def register():
             new_user=models.User(login=login,password=hash_pass)
             db.db.session.add(new_user)
             db.db.session.commit()
-            return redirect(url_for("views.main"))
+            return redirect(url_for("chats.chat"))
         
 @auth.route("/login",methods=["GET","POST"])
 def login():
@@ -56,4 +56,4 @@ def login():
             return redirect(url_for("auth.login"))
         else:
             session["login"]=login
-            return redirect(url_for("views.main"))
+            return redirect(url_for("chats.chat"))

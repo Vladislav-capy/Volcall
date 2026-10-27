@@ -11,6 +11,12 @@
     <input type="password" name="password" placeholder="Enter password"><p></p>
     <input type="password" name="password2" placeholder="Confirm password"><p></p>
     <button>Register</button>
-    </form>
+    </form><p></p>
+    <button onclick="window.location.href='/login'">Login</button>
+    {%with flash=get_flashed_messages()%}
+    {%for i in flash%}
+    {{i}}
+    {%endfor%}
+    {%endwith%}
 </body>
 </html>

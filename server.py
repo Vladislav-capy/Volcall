@@ -6,7 +6,6 @@ users=[]
 @SocketApp.on("connect")
 def socket():
     users.append(request.sid)
-    print("dididdidi")
     join_room("room1")
 @SocketApp.on("videocall")
 def videocall():
@@ -21,8 +20,8 @@ def candidate(candidate):
     emit("candidate",candidate,include_self=False,to="room1")
 @SocketApp.on("offer")
 def offer(offer):
-    emit("offer",offer)
+    emit("offer",offer,to="room1",include_self=False)
 @SocketApp.on("answer")
 def answer(answer):
-    emit("answer",answer)
+    emit("answer",answer,to="room1",include_self=False)
 SocketApp.run(app,debug=True)

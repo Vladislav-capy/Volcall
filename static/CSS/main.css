@@ -39,3 +39,25 @@ header{
     height:84.4vh;
     width: 100%;
 }
+#accept{
+    width: 100px;
+    height: 100px;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+}
+#decline{
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+}
+#decline img{
+    width: 100px;
+    height: 100px;
+}
+#acceline{
+    position: absolute;
+    left:45%;
+    bottom: 100px;
+    background-color: grey;
+    border-radius: 10px;
+    
+}

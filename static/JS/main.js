@@ -1,4 +1,5 @@
 let socket=io()
+let acceline=document.getElementById("acceline")
 let myvideo=document.getElementById("video")
 let videocall=document.getElementById("videocall")
 let stream=null
@@ -7,6 +8,7 @@ let otherstream=null
 let peerconnection=null
 let callsound=new Audio("static/media/call.mp3")
 let accept=document.getElementById("accept")
+let decline=document.getElementById("decline")
 callsound.loop=true
 
 videocall.addEventListener("click",async function () {
@@ -51,7 +53,7 @@ async function camera_on(){
 }
 
 socket.on("videocall",function(){
-
+    acceline.hidden=false
     accept.hidden=false
 })
 accept.addEventListener("click",async function() {
@@ -71,10 +73,18 @@ socket.on("candidate",async function(candidate){
 })
 socket.on("offer",async function (offer) {
     await peerconnection.setRemoteDescription(offer)
-    let answer=peerconnection.createAnswer()
+    let answer=await peerconnection.createAnswer()
     await peerconnection.setLocalDescription(answer)
     socket.emit("answer",answer)
 })
 socket.on("answer",async function (answer) {
     await peerconnection.setRemoteDescription(answer)
 })
+decline.addEventListener("click",async function () {
+    await camera_audio_off()
+    acceline.hidden=true
+})
+async function camera_audio_off() {
+    myvideo.srcObject=null
+    othervideo.srcObject=null
+}
